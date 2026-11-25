@@ -5,7 +5,7 @@
     "lon": 9.1834
   },
   "display": {
-    "preset": "daily",
+    "preset": "minimal",
     "modules": [
       "weather",
       "clocks"
