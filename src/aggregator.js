@@ -63,14 +63,15 @@ export async function buildDashboard(db) {
   const cfg = getConfig();
   const cloud = cfg.mode === 'cloud';
 
-  const [weather, stocks, fx, news, mlb, newsEn] = await Promise.all([
-    guard('weather', getWeather),
-    guard('stocks', getStocks),
-    guard('fx', getFx),
-    guard('news', () => getNews()),
-    guard('mlb', getMlb),
-    guard('news-en', () => getNews('en'))
-  ]);
+  const [weather, stocks, fx, news, mlb, newsEn, calendar] = await Promise.all([
+  guard('weather', getWeather),
+  guard('stocks', getStocks),
+  guard('fx', getFx),
+  guard('news', () => getNews()),
+  guard('mlb', getMlb),
+  guard('news-en', () => getNews('en')),
+  guard('calendar', getCalendar)
+]);
 
   // cloud 模式只解析一次上报文件：以前这里读一次、quotasCloud 里再读一次，
   // 两次读到不同快照时 pcOnline 和 quotas.fetchedAt 会对不上。
