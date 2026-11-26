@@ -126,7 +126,7 @@ def localized_data(data):
     for clock in (d.get('clocks') or {}).get('items', []):
         clock['city'] = clock.get('cityEn') or CITY_EN.get(clock.get('city'), clock.get('tz', '').split('/')[-1].replace('_', ' '))
         date = clock.get('date', '')
-        for zh, en in zip('一二三四五六日', ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']):
+        for zh, en in zip('一二三四五六日', ['Lun','Mar','Mer','Gio','Ven','Sab','Dom']):
             date = date.replace('周' + zh, en)
         clock['date'] = date.replace('月','/').replace('日','')
     for team in (d.get('mlb') or {}).get('items', []):
@@ -365,7 +365,7 @@ def draw_header(draw, d, y):
     now = display_now()
     day = now.strftime('%d')
     wd = '一二三四五六日'[now.weekday()]
-    mw = (['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][now.month-1] + ' ' + ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][now.weekday()]) if LANG == 'en' else '%d月 周%s' % (now.month, wd)
+    mw = (['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][now.month-1] + ' ' + ['Lun','Mar','Mer','Gio','Ven','Sab','Dom'][now.weekday()]) if LANG == 'en' else '%d月 周%s' % (now.month, wd)
     ts = now.strftime('%H:%M')
     city = (d.get('weather') or {}).get('city') or ''
     fd = f(F_DATE, bold=True)
@@ -620,7 +620,7 @@ def draw_quote(draw, d, y, quotes):
     return y + F_BODY + 6
 
 MONTH_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-WEEKDAY_EN = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+WEEKDAY_EN = ['Lun','Mar','Mer','Gio','Ven','Sab','Dom']
 
 
 def wrap_lines(draw, text, font, max_w):
