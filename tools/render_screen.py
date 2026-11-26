@@ -74,11 +74,36 @@ CITY_EN = {'深圳':'Shenzhen', '伦敦':'London', '洛杉矶':'Los Angeles', '�
 TEAM_EN = dict(zip(
     '响尾蛇 勇士 金莺 红袜 小熊 白袜 红人 守护者 洛基 老虎 太空人 皇家 天使 道奇 马林鱼 酿酒人 双城 大都会 洋基 运动家 费城人 海盗 教士 巨人 水手 红雀 光芒 游骑兵 蓝鸟 国民'.split(),
     'ARI ATL BAL BOS CHC CWS CIN CLE COL DET HOU KC LAA LAD MIA MIL MIN NYM NYY OAK PHI PIT SD SF SEA STL TB TEX TOR WSH'.split()))
-WEATHER_EN = {0:'Clear',1:'Mostly clear',2:'Partly cloudy',3:'Overcast',45:'Fog',48:'Rime fog',
-    51:'Drizzle',53:'Drizzle',55:'Drizzle',56:'Freezing drizzle',57:'Freezing drizzle',
-    61:'Rain',63:'Rain',65:'Heavy rain',66:'Freezing rain',67:'Freezing rain',
-    71:'Snow',73:'Snow',75:'Heavy snow',77:'Snow grains',80:'Showers',81:'Showers',82:'Heavy showers',
-    85:'Snow showers',86:'Snow showers',95:'Thunderstorm',96:'Hailstorm',99:'Hailstorm'}
+WEATHER_EN = {
+    0:'Sereno',
+    1:'Prevalentemente sereno',
+    2:'Parzialmente nuvoloso',
+    3:'Nuvoloso',
+    45:'Nebbia',
+    48:'Nebbia gelata',
+    51:'Pioviggine',
+    53:'Pioviggine',
+    55:'Pioviggine intensa',
+    56:'Pioviggine gelata',
+    57:'Pioviggine gelata',
+    61:'Pioggia',
+    63:'Pioggia moderata',
+    65:'Pioggia intensa',
+    66:'Pioggia gelata',
+    67:'Pioggia gelata intensa',
+    71:'Neve',
+    73:'Neve moderata',
+    75:'Neve intensa',
+    77:'Granuli di neve',
+    80:'Rovesci',
+    81:'Rovesci moderati',
+    82:'Rovesci intensi',
+    85:'Rovesci di neve',
+    86:'Rovesci di neve intensi',
+    95:'Temporale',
+    96:'Temporale con grandine',
+    99:'Temporale con grandine intensa'
+}
 
 def tr(text):
     return LABELS.get(text, text) if LANG == 'en' else text
