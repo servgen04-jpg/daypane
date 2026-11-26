@@ -90,6 +90,7 @@ export async function buildDashboard(db) {
     pcOnline: cloud ? !!(reported && reported.ok && !reported.stale) : true,
     quotas: { ...quotas, fetchedAt: cloud ? (reported && reported.ts) || null : now },
     weather,
+    calendar,
     stocks,
     clocks: guard('clocks', getClocks),
     fx,
