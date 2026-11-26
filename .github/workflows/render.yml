@@ -65,6 +65,7 @@ jobs:
           SHAWN_MODE: cloud
           SHAWN_QUOTAS_FILE: ${{ github.workspace }}/runtime-input/quotas.json
           DISPATCH_REQUESTED_AT: ${{ inputs.requested_at }}
+          GOOGLE_CALENDAR_ICS_URL: ${{ secrets.GOOGLE_CALENDAR_ICS_URL }}
         run: python tools/build_site.py --previous-url https://shenliucn-prog.github.io/daypane --output _site
       - uses: actions/upload-pages-artifact@v4
         with:
