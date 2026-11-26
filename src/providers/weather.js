@@ -3,16 +3,36 @@ import { getConfig } from '../config.js';
 
 // WMO weather code -> short Chinese description.
 const WMO = {
-  0: '晴', 1: '少云', 2: '多云', 3: '阴',
-  45: '雾', 48: '雾凇',
-  51: '毛毛雨', 53: '小雨', 55: '中雨',
-  56: '冻毛雨', 57: '冻雨',
-  61: '小雨', 63: '中雨', 65: '大雨',
-  66: '冻雨', 67: '冻雨',
-  71: '小雪', 73: '中雪', 75: '大雪', 77: '雪粒',
-  80: '阵雨', 81: '阵雨', 82: '强阵雨',
-  85: '阵雪', 86: '强阵雪',
-  95: '雷阵雨', 96: '雷雹', 99: '强雷雹'
+ const WMO = {
+  0: 'Sereno',
+  1: 'Prevalentemente sereno',
+  2: 'Parzialmente nuvoloso',
+  3: 'Nuvoloso',
+  45: 'Nebbia',
+  48: 'Nebbia gelata',
+  51: 'Pioviggine leggera',
+  53: 'Pioviggine moderata',
+  55: 'Pioviggine intensa',
+  56: 'Pioviggine gelata leggera',
+  57: 'Pioviggine gelata intensa',
+  61: 'Pioggia leggera',
+  63: 'Pioggia moderata',
+  65: 'Pioggia intensa',
+  66: 'Pioggia gelata leggera',
+  67: 'Pioggia gelata intensa',
+  71: 'Neve leggera',
+  73: 'Neve moderata',
+  75: 'Neve intensa',
+  77: 'Granuli di neve',
+  80: 'Rovesci leggeri',
+  81: 'Rovesci moderati',
+  82: 'Rovesci intensi',
+  85: 'Rovesci di neve leggeri',
+  86: 'Rovesci di neve intensi',
+  95: 'Temporale',
+  96: 'Temporale con grandine',
+  99: 'Temporale con grandine intensa'
+};
 };
 const wmo = (c) => WMO[c] ?? `码${c}`;
 
