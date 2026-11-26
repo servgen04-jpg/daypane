@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-MODULES = ('news', 'ai', 'weather', 'market', 'clocks', 'mlb', 'quote')
+MODULES = ('news', 'ai', 'weather', 'calendar', 'market', 'clocks', 'mlb', 'quote')
 PRESETS = {
     'daily': list(MODULES),
     'work': ['clocks', 'ai', 'news', 'weather', 'market'],
