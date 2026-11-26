@@ -7,7 +7,8 @@
   "display": {
     "preset": "minimal",
     "modules": [
-      "weather"
+      "weather",
+      "calendar"
     ],
     "width": 758,
     "height": 1024,
