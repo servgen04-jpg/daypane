@@ -97,6 +97,7 @@ def main():
             with (work / 'dashboard.json').open('wb') as f:
                 subprocess.run(['node', 'tools/dump_dashboard.js'], stdout=f, check=True, timeout=120)
         data = json.loads((work / 'dashboard.json').read_text())
+        print('[weather-debug]', json.dumps(data.get('weather', {}), ensure_ascii=False))
         sections = {k: {'ok': bool(data.get(k, {}).get('ok')), 'fetchedAt': data.get(k, {}).get('fetchedAt')}
                     for k in ('weather', 'stocks', 'fx', 'news', 'mlb')}
         if not data.get('ok') or not any(v['ok'] for v in sections.values()):
