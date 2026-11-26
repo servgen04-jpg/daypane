@@ -54,8 +54,7 @@ export async function getCalendar() {
     const parsed = ICAL.parse(ics);
     const calendar = new ICAL.Component(parsed);
 
-    const today = dateKey(new Date());
-    const lastDay = addDays(today, 3);
+    const now = new Date();
 
     const components = calendar.getAllSubcomponents('vevent');
     const events = components.map((component) => new ICAL.Event(component));
@@ -93,9 +92,7 @@ export async function getCalendar() {
         const end = endDate.toJSDate();
         const day = dateKey(start);
 
-        if (day > lastDay) break;
-
-        if (day < today) continue;
+        if (start < now) continue;
 
         const actualEvent = details.item || event;
 
@@ -114,6 +111,7 @@ export async function getCalendar() {
       a.start.localeCompare(b.start) ||
       a.title.localeCompare(b.title)
     );
+    items.splice(4);
 
     return {
       ok: true,
