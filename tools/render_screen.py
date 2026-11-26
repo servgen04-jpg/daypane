@@ -536,6 +536,53 @@ def draw_market(draw, d, y):
             draw.text((x, ry), clip(draw, cell, ff, colw - 8), fill=BLACK, font=ff)
     return y + rows * (F_BODY + 6)
 
+
+def draw_calendar(draw, d, y):
+    """Appuntamenti Google Calendar dei prossimi quattro giorni."""
+    cal = d.get('calendar') or {}
+    items = cal.get('items', [])
+
+    y = draw_title(draw, y, 'APPUNTAMENTI')
+    ff = f(F_BODY)
+    fs = f(F_SMALL)
+
+    if not cal.get('ok'):
+        draw.text((PAD, y), 'Calendario non disponibile', fill=GRAY, font=fs)
+        return y + F_BODY + 8
+
+    if not items:
+        draw.text((PAD, y), 'Nessun appuntamento', fill=GRAY, font=fs)
+        return y + F_BODY + 8
+
+    current_day = None
+
+    for event in items:
+        day = event.get('date', '')
+
+        if day != current_day:
+            current_day = day
+            date_label = day[8:10] + '/' + day[5:7]
+            draw.text((PAD, y), date_label, fill=BLACK, font=ff)
+            y += F_BODY + 4
+
+        if event.get('allDay'):
+            time_label = 'Tutto il giorno'
+        else:
+            time_label = event.get('start', '')
+            end = event.get('end', '')
+            if time_label and end:
+                time_label += ' - ' + end
+
+        time_label = clip(draw, time_label, fs, 190)
+        title = clip(draw, event.get('title', ''), ff, CONTENT_W - 210)
+
+        draw.text((PAD + 8, y), time_label, fill=GRAY, font=fs)
+        draw.text((PAD + 210, y), title, fill=BLACK, font=ff)
+
+        y += F_BODY + 5
+
+    return y + 6
+
 def draw_clocks(draw, d, y):
     """世界时钟（两列）"""
     y = draw_title(draw, y, tr('世界时钟'))
