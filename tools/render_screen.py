@@ -924,6 +924,7 @@ def render(d, out_path=None, language="zh", page=1, pages=1):
         'news': lambda y: draw_news(draw, d, y),
         'ai': lambda y: draw_ai(draw, d, y),
         'weather': lambda y: draw_weather(draw, d, y),
+        'calendar': lambda y: draw_calendar(draw, d, y),
         'market': lambda y: draw_market(draw, d, y),
         'clocks': lambda y: draw_clocks(draw, d, y),
         'mlb': lambda y: draw_mlb(draw, d, y),
