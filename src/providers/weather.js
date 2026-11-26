@@ -3,7 +3,6 @@ import { getConfig } from '../config.js';
 
 // WMO weather code -> short Chinese description.
 const WMO = {
- const WMO = {
   0: 'Sereno',
   1: 'Prevalentemente sereno',
   2: 'Parzialmente nuvoloso',
@@ -32,7 +31,6 @@ const WMO = {
   95: 'Temporale',
   96: 'Temporale con grandine',
   99: 'Temporale con grandine intensa'
-};
 };
 const wmo = (c) => WMO[c] ?? `码${c}`;
 
