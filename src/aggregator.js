@@ -2,6 +2,7 @@ import { getWorkbuddy } from './providers/workbuddy.js';
 import { getClaudeCodeUsage } from './providers/claudecode.js';
 import { getCodexUsage } from './providers/codex.js';
 import { getWeather } from './providers/weather.js';
+import { getCalendar } from './providers/calendar.js';
 import { getStocks } from './providers/stocks.js';
 import { getClocks } from './providers/clocks.js';
 import { getFx } from './providers/fx.js';
