@@ -111,7 +111,7 @@ export async function getCalendar() {
       a.start.localeCompare(b.start) ||
       a.title.localeCompare(b.title)
     );
-    items.splice(4);
+    items.splice(10);
 
     return {
       ok: true,
